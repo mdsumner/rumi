@@ -1,7 +1,8 @@
 # rumi vs GeoTIFF: decode benchmark
 
 This benchmark extends the rumi notebook
-[asterisk-labs/rumi examples/rumi-vs-geotiff.ipynb](https://github.com/asterisk-labs/rumi/blob/main/examples/rumi-vs-geotiff.ipynb).
+[asterisk-labs/rumi examples/rumi-vs-geotiff.ipynb](https://github.com/asterisk-labs/rumi/blob/main/examples/rumi-vs-geotiff.ipynb) that was [posted on Pangeo](https://discourse.pangeo.io/t/decode-geotiff-to-gpu-memory/5214/16). 
+
 It splits rumi's speed-up over a Sentinel-2 COG into its parts: the codec, the
 band layout inside a chunk, the tile size, and the GDAL settings.
 
@@ -64,7 +65,7 @@ rumi one-chunk-per-band **9 ms**, GDAL zstd band-interleaved 25 ms, rumi bhw
    about 10-20%. `GTIFF_DIRECT_IO` and `GTIFF_VIRTUAL_MEM_IO` make in-memory
    reads 3-4x slower.
 
-The broader point: new codecs deserve as much effort on being readable from
+New codecs deserve as much effort on being readable from
 existing software (a TIFF compression tag, a libtiff/GDAL codec, an
 imagecodecs/numcodecs entry) as on the codec itself. rumi is already a TIFF
 in all but its magic bytes. Its OpenZL codec inside a standard GTiff would
