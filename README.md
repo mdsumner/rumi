@@ -4,7 +4,7 @@ This benchmark extends the rumi notebook
 [asterisk-labs/rumi examples/rumi-vs-geotiff.ipynb](https://github.com/asterisk-labs/rumi/blob/main/examples/rumi-vs-geotiff.ipynb) that was [posted on Pangeo](https://discourse.pangeo.io/t/decode-geotiff-to-gpu-memory/5214/16). 
 
 It splits rumi's speed-up over a Sentinel-2 COG into its parts: the codec, the
-band layout inside a chunk, the tile size, and the GDAL settings.
+band layout inside a chunk, the tile size, and the GDAL settings. We use GDAL directly here since it is the target of the comparison. 
 
 Scene: `S2A_37MBV_20241029_0_L2A/TCI.tif` (3 x 10980 x 10980 uint8, DEFLATE +
 PREDICTOR=2, pixel-interleaved, 1024 tiles). The encoded bytes are held in RAM,
